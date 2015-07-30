@@ -1,0 +1,44 @@
+body {
+    font-family: 'Helvetica Nueu', Helvetica, Verdana, sans-serif;
+}
+
+#code_checkbox + div pre {
+    display: none;
+}
+
+#code_checkbox:checked + div pre {
+    display: block;
+}
+
+button {
+    display: block;
+    margin: 1em 0;
+}
+
+#buttons {
+}
+
+#console {
+    float: right;
+    margin: 0 0 0 2em;
+    padding: 0.5em;
+    width: 50%;
+    height: 400px;
+    font-family: monospace;
+    word-break: break-all;
+    font-size: 0.9em;
+    background-color: lightyellow;
+    overflow-y: scroll;
+}
+
+.log {
+
+}
+
+.warn {
+    color: darkorange;
+}
+
+.error {
+    color: red;
+}

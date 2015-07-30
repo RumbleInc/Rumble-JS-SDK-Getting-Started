@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Rumble JS SDK example 1</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+
+    <script type="text/javascript" src="../dist/latest/rumbe-sdk.min.js"></script>
+    <script>
+        var appID = 361;
+
+        var _adRequest = new RumbleSDK.Analytics.AdRequest({
+            adNetwork: 'adNetwork',
+            invID: 'invID',
+            deviceID: 'deviceID',
+            adUnitID: 'adUnitID',
+            adLocation: 'adLocation',
+            size: 'size',
+            showAt: 'showAt',
+            frequency: 'frequency',
+            adTag: 'adTag',
+            targetingParams: {}
+        });
+
+        var _article = new RumbleSDK.Analytics.Article({
+            channelID: 'channelID',
+            articleID: 'articleID',
+            isPremium: true,
+            isBookmarked: false,
+            isFromBookmarkedSection: false,
+            isBreakingNews: true,
+            articleTitle: 'articleTitle',
+            authorName: 'authorName',
+            channelName: 'channelName',
+            URL: 'URL',
+            position: 1
+        });
+
+        RumbleSDK.messages.subscribe({
+            channel: 'Analytics',
+            topic: 'send.event',
+            callback: function(event) {
+                console.log('Next event has been sent:');
+                console.log(JSON.stringify(event));
+                console.log('-----------------');
+            }
+        });
+
+        var initialize = function() {
+            console.log('RumbleSDK initializing started');
+            RumbleSDK.initialize({appID: appID}).then(function() {
+                console.log('RumbleSDK has been initialized')
+                console.log('RumbleSDK.getAppID() = ' + RumbleSDK.getAppID());
+                console.log('RumbleSDK.isProduction() = ' + RumbleSDK.isProduction());
+                console.log('-----------------');
+            });
+        };
+        var sendArticleReadEvent = function() {
+            if (!RumbleSDK.Analytics.sendArticleReadEvent(_article, 1000)) {
+                console.warn('Something wrong. Initialize the SDK first');
+            }
+        };
+        var sendVideoStartedEvent = function() {
+            if (!RumbleSDK.Analytics.sendVideoStartedEvent('article-id', 'http://video.com/lions123')) {
+                console.warn('Something wrong. Initialize the SDK first');
+            }
+        };
+    </script>
+</head>
+<body>
+<h1><a href="index.html">Rumble JavaScript SDK Examples</a></h1>
+<h2>Playground</h2>
+
+<p>Open console tab in developer tools to see output.</p>
+
+<div id="console">
+    <button onclick="clearConsole()">Clear</button>
+    <div id="console_content"></div>
+</div>
+Show code of examples <input id="code_checkbox" type="checkbox"/>
+
+<div id="buttons">
+    <hr/>
+
+
+    <button onclick="initialize()">Initialize</button>
+<pre>
+    <strong>RumbleSDK.initialize({appID: appID});</strong>
+    <hr/>
+</pre>
+
+
+    <button onclick="sendArticleReadEvent()">Send ArticleRead event</button>
+<pre>
+    var _article = new RumbleSDK.Analytics.Article({
+        channelID: 'channelID',
+        articleID: 'articleID',
+        isPremium: true,
+        isBookmarked: false,
+        isFromBookmarkedSection: false,
+        isBreakingNews: true,
+        articleTitle: 'articleTitle',
+        authorName: 'authorName',
+        channelName: 'channelName',
+        URL: 'URL',
+        position: 1
+    });
+    <strong>RumbleSDK.Analytics.sendArticleReadEvent(_article, 1000);</strong>
+    <hr/>
+</pre>
+
+
+    <button onclick="sendVideoStartedEvent()">Send VideoStarted event</button>
+<pre>
+    <strong>RumbleSDK.Analytics.sendVideoStartedEvent('article-id', 'http://video.com/lions123')</strong>
+    <hr/>
+</pre>
+
+
+</div>
+
+<script>
+    (function() {
+
+        var consoleDiv = document.getElementById('console_content');
+        var _log = console.log;
+        console.log = function(message) {
+            consoleDiv.innerHTML += '<div class="log">' + message + '</div>';
+            _log.apply(console, arguments);
+        };
+        var _warn = console.warn;
+        console.warn = function(message) {
+            consoleDiv.innerHTML += '<div class="warn">' + message + '</div>';
+            _warn.apply(console, arguments);
+        };
+
+    })();
+
+    var clearConsole = function() {
+        var consoleDiv = document.getElementById('console_content');
+        consoleDiv.innerHTML = '';
+    }
+</script>
+
+</body>
+</html>
