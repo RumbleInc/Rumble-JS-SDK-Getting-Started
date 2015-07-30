@@ -13,6 +13,7 @@ body {
 button {
     display: block;
     margin: 1em 0;
+    font-size: 0.9em;
 }
 
 #buttons {
