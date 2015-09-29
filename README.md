@@ -8,4 +8,4 @@ For further understanding of available analytics capabilities, read our wiki:
 * [Content BI Events](../../wiki/Content BI Events)
 
 ###Watch sample app in action###
-[API sample app](http://rumbleinc.github.io/Rumble-JS-SDK-Getting-Started/)
+[API sample app](http://rumbleinc.github.io/Rumble-JS-SDK-Getting-Started/examples/playground.html)
