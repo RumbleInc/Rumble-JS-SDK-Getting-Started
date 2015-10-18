@@ -3,7 +3,7 @@ Demonstration of rumble JS (Web) SDK for publishers, including sample app.
 
 Read our [Getting Started](../../wiki/Getting Started) guide for Rumble SDK integration.
 
-###Read more about analytics SDK###
+###Read more about Analytics SDK###
 For further understanding of available analytics capabilities, read our wiki:
 * [General Purpose Events](../../wiki/General Purpose Events)
 * [Content BI Events](../../wiki/Content BI Events)
