@@ -4,7 +4,7 @@ Demonstration of rumble JS (Web) SDK for publishers, including sample app.
 Read our [Getting Started](../../wiki/Getting Started) guide for Rumble SDK integration.
 
 ###Read more about Analytics SDK###
-[Analytics SDK](../../Rumble-JS-SDK-Getting-Started/wiki/Analytics)
+[Analytics SDK](../../wiki/Analytics)
 
 
 ###Read more about Content SDK###
