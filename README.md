@@ -8,7 +8,7 @@ Find Rumble SDK [Wiki Here](../../wiki)
 ###Read more about available sdk packages###
 * [Analytics SDK](../../wiki/Analytics)
 * [Content SDK](../../wiki/Content)
-* [JS widgets](../../wiki/Widgets)
+* [Web widgets](../../wiki/Widgets)
 
 
 ###Watch sample app in action###
